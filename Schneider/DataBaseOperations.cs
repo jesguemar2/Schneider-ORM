@@ -12,6 +12,9 @@ using System.Data.Entity.Infrastructure;
 
 namespace Schneider
 {
+	/// <summary>
+	/// Class to make database operations. Read, update and delete.
+	/// </summary>
     class DataBaseOperations
     {
 		/// <summary>

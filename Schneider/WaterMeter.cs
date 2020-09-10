@@ -3,7 +3,7 @@ namespace Schneider
     using System;
     using System.Collections.Generic;
     /// <summary>
-    /// Class created by entity framework
+    /// Class created by Entity Framework
     /// </summary>
     public partial class WaterMeter
     {
