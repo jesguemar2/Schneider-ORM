@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DevicesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Gateway">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SerialNumber" Type="int" Nullable="false" />
+          <Property Name="Brand" Type="nchar" MaxLength="10" />
+          <Property Name="Model" Type="nchar" MaxLength="10" />
+          <Property Name="Ip" Type="nvarchar" MaxLength="50" />
+          <Property Name="PortNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="LightMeter">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SerialNumber" Type="int" Nullable="false" />
+          <Property Name="Brand" Type="nchar" MaxLength="10" />
+          <Property Name="Model" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="WaterMeter">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SerialNumber" Type="int" Nullable="false" />
+          <Property Name="Brand" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DevicesModelStoreContainer">
+          <EntitySet Name="Gateway" EntityType="Self.Gateway" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LightMeter" EntityType="Self.LightMeter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WaterMeter" EntityType="Self.WaterMeter" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DevicesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Gateway">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SerialNumber" Type="Int32" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PortNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LightMeter">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SerialNumber" Type="Int32" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WaterMeter">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SerialNumber" Type="Int32" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DevicesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Gateway" EntityType="Self.Gateway" />
+          <EntitySet Name="LightMeter" EntityType="Self.LightMeter" />
+          <EntitySet Name="WaterMeter" EntityType="Self.WaterMeter" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DevicesModelStoreContainer" CdmEntityContainer="DevicesEntities">
+          <EntitySetMapping Name="Gateway">
+            <EntityTypeMapping TypeName="DevicesModel.Gateway">
+              <MappingFragment StoreEntitySet="Gateway">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="PortNumber" ColumnName="PortNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LightMeter">
+            <EntityTypeMapping TypeName="DevicesModel.LightMeter">
+              <MappingFragment StoreEntitySet="LightMeter">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaterMeter">
+            <EntityTypeMapping TypeName="DevicesModel.WaterMeter">
+              <MappingFragment StoreEntitySet="WaterMeter">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
